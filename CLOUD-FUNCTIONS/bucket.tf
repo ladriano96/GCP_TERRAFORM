@@ -11,10 +11,9 @@ resource "google_storage_bucket" "buck-ladriano-dev-01" {
 
 
 resource "google_storage_bucket_object" "functionladriano" {
-  name   = "functionladriano.py"
-  bucket = var.bucket_name
-  source = "functionladriano.py"
-
+  name       = "functionladriano.py"
+  bucket     = var.bucket_name
+  source     = "functionladriano.py"
   depends_on = [google_storage_bucket.buck-ladriano-dev-01]
 
 }
