@@ -1,4 +1,4 @@
-resource "google_cloudfunctions_function" "ladriano_teste_function" {
+/*resource "google_cloudfunctions_function" "ladriano_teste_function" {
   name                = var.function_name
   description         = "descricao da sua funcao aqui"
   project             = var.project_id
@@ -14,3 +14,4 @@ resource "google_cloudfunctions_function" "ladriano_teste_function" {
     "enviroment" = "dev"
   }
 }
+*/
