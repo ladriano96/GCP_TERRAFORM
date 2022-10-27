@@ -30,3 +30,9 @@ variable "bucket_name" {
   default = "buck-ladriano-dev-01"
 
 }
+
+
+variable "storage_class_standard" {
+  type = string
+  default = "STANDARD"
+}
