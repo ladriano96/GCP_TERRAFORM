@@ -9,4 +9,8 @@ resource "google_cloudfunctions_function" "ladriano_teste_function" {
   available_memory_mb           = "2048"
   max_instances                 = "5"
   timeout                       = "60"
+
+  labels = {
+    "enviroment" = "dev"
+  }
 }
