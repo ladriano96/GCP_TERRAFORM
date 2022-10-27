@@ -4,7 +4,7 @@ Repositório criado para os ambientes de estudo do terraform na GCP.
 
 
 
-##### Comandos GIT ######
+# COMANDOS GIT
 
 - git status (responsável por mostrar os itens que estão ou não disponíveis para serem commitados)
 
