@@ -1,4 +1,4 @@
-resource "google_storage_bucket" "buck-ladriano-dev-01" {
+/*resource "google_storage_bucket" "buck-ladriano-dev-01" {
   project       = var.project_id
   name          = var.bucket_name
   location      = var.region_name
@@ -17,3 +17,4 @@ resource "google_storage_bucket_object" "functionladriano" {
   depends_on = [google_storage_bucket.buck-ladriano-dev-01]
 
 }
+*/
