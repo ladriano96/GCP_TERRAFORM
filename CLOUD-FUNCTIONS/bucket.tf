@@ -1,4 +1,4 @@
-/*resource "google_storage_bucket" "buck-ladriano-dev-01" {
+resource "google_storage_bucket" "buck-ladriano-dev-01" {
   project       = var.project_id
   name          = var.bucket_name
   location      = var.region_name
@@ -11,9 +11,9 @@
 
 
 resource "google_storage_bucket_object" "functionladriano" {
-  name       = "functionladriano.py"
+  name       = "function-phyton"
   bucket     = var.bucket_name
-  source     = "functionladriano.py"
+  source     = "functions-python/function.zip"
   depends_on = [google_storage_bucket.buck-ladriano-dev-01]
 
-}*/
+}
