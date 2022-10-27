@@ -9,7 +9,7 @@ resource "google_storage_bucket" "buck-ladriano-dev-01" {
   }
 }
 
-resource "google_storage_bucket_object" "archieve" {
+resource "google_storage_bucket_object" "functionladriano" {
     name = "functionladriano.py"
     bucket = var.bucket_name
     source = "/functionladriano.py"
