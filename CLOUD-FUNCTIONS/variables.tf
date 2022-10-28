@@ -13,7 +13,11 @@ variable "function_name" {
   default = "ladriano_teste_function"
 }
 
-variable "runtime_type_python39" {
+variable "runtime_type" {
+
+  /* você pode definir o campo default dessa variavel de acordo com a linguagem de programação que será executada na sua função. 
+  As linguagens aceitas pelo Cloud Functions está contida nessa documentação https://cloud.google.com/functions/docs/concepts/execution-environment#runtimes */
+
   type    = string
   default = "python39"
 
@@ -36,6 +40,7 @@ variable "storage_class_standard" {
   type    = string
   default = "STANDARD"
 }
+
 
 variable "description" {
   type    = string
