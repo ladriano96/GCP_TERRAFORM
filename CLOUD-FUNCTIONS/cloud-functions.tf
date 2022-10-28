@@ -1,4 +1,4 @@
-/*resource "google_cloudfunctions_function" "ladriano_teste_function" {
+resource "google_cloudfunctions_function" "ladriano_teste_function" {
   name                  = var.function_name
   description           = var.description
   project               = var.project_id
@@ -18,4 +18,3 @@
 
   depends_on = [google_storage_bucket_object.functionladriano]
 }
-*/
