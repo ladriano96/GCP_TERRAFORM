@@ -1,6 +1,6 @@
 /*resource "google_cloudfunctions_function" "ladriano_teste_function" {
   name                  = var.function_name
-  description           = "descricao da sua funcao aqui"
+  description           = var.description
   project               = var.project_id
   region                = var.region_name
   trigger_http          = true

@@ -33,6 +33,12 @@ variable "bucket_name" {
 
 
 variable "storage_class_standard" {
-  type = string
+  type    = string
   default = "STANDARD"
+}
+
+variable "description" {
+  type    = string
+  default = "the description here"
+
 }
