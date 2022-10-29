@@ -17,7 +17,7 @@ variable "region_name" {
 variable "function_name" {
   description = "the cloud function name"
   type    = string
-  default = "cloudfunction_gn1"
+  default = "cloudfunctions_gn1"
 }
 
 
