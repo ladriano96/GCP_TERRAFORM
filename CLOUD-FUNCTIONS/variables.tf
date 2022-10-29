@@ -20,6 +20,12 @@ variable "function_name" {
   default = "cloudfunctions_gn1"
 }
 
+variable "env" {
+  description = "the environment name"
+  type    = string
+  default = "dev"
+}
+
 
 
 variable "runtime_type" {
@@ -38,11 +44,11 @@ variable "entry_point_name" {
 
 
 
-variable "bucket_name" {
+/*variable "bucket_name" {
   description = "the bucket name"
   type    = string
   default = "buck-dev-01"
-}
+}*/
 
 
 
