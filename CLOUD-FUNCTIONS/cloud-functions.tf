@@ -1,10 +1,11 @@
+/* CLOUD FUNCTIONS 1ª GERACAO COM TRIGGER HTTP ATIVA */
 resource "google_cloudfunctions_function" "ladriano_teste_function" {
   name                  = var.function_name
-  description           = "descricao da sua funcao aqui"
+  runtime               = var.runtime_type
+  description           = var.description
   project               = var.project_id
   region                = var.region_name
   trigger_http          = true
-  runtime               = var.runtime_type_python39
   entry_point           = var.entry_point_name
   source_archive_bucket = google_storage_bucket.buck-ladriano-dev-01.name
   source_archive_object = google_storage_bucket_object.functionladriano.name
@@ -15,6 +16,5 @@ resource "google_cloudfunctions_function" "ladriano_teste_function" {
   labels = {
     "enviroment" = "dev"
   }
-
   depends_on = [google_storage_bucket_object.functionladriano]
 }

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pj-ladriano-cloud",
+  "private_key_id": "4704092b4b5be3e88a4d44b2dbbb0ad4bcc1a0c2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDZcNyNc5Hfg55+\nEPMzdJwOuJvcrQoIlmAJpSk90mT624o6D9gVHNFrUbgv9AWvP30po6HrqFP9JOhO\nYjePCvxRPlNJ2wMpajOk2/TnLcovGe14I3gyRrRZv6ec5M/PVn3VA52wVx1aqnfj\noBQv4F9iQewBWqCFrniSi7xMITlaAfhxtnQPNcki9KERTnX4ml32mJII38rYkBUw\norP58gkfW8k6QIWr4ZpVlLAgEVgzakqdEmE+xQRVoH5+RQi2s3jXp7ZYTYWtmSFQ\nRkdh8Bgb2rCzz6FukVoFFac2urZr0PGTrJvccDY9outYKID1PX+EExPy0IP1yBp5\n8HzwCRUhAgMBAAECggEABK9yDoQ6f51M7tImWL9UVjGJKOimSjK/UAXkjRtO/Ll6\nptn3jIDp9veJp1LemnzyO/xK0r1Lo1fxFNtN74Gg7Tk8FIp+bMfdOVoEqBnsUjaA\npPGSt0v0ZT4EJRUocIMgbqocyD4gTkyqYlfCh5jnRUKUDMrAobt1h/wwgFgeQxUJ\n7B2n0v2zLKebtyrbV5Bh0p7H9/s6t5rv1v9LLSSg+PRfVDsMQ2//zJrE4WbzWxtr\nx+IgmsxqLsFUgW9fCD4W6Wmx01SRUAfjwNvZBCUZX/1kVb5aW1Ezk0vl7DqLXiL2\nmn5FLodf+k8MLja42NBzVATUi6ryaxkYiK4k+nGIyQKBgQD/BI119EHJwSdklvni\nelTQhytoWKaaerOFqiWvZVEFCmh+Q72/kuz4BBGiQERWpB8T7FYNlyKXrKgrBgdT\nVm3GOm3T88rhq+Dr4zrCudCAr0ZtNbkFd+DzTOL8JnFFZzbLwXh5AB+2Z1uCPZ4J\nOy9esafQW+MFdIhlHFNBTRuXdQKBgQDaR0IUrbJAwqz92wA3zyxf9p0QxmT+Ln0n\n704vftHhcSFJdrrCvxU4yyt3tjJyZatvInnzGwRKL4oHfqstqoPo6FkcuwgCA37n\nAbz0igJ9/5SY+PaYRuVLaCL6UjgNGVRAFanRFBvV+RSX23E6cmzaMCSkotVOwltM\nvw0OFqx9fQKBgDuw6Ruu7Kc42uukmyDz2V5mBTcLaRPHnLWwudlwMaKoaQUE/ikV\nTvpOmYIM4PIWwF99djcAJUyzUTmg054iINfBXWu7KMXh4WfVbC+gJrm4TRfK91/c\nS38nhAnZRbIlEqJmyrgn20RqtPSrT46Bl/jmRI10tJLWUAa6tpIWZlrxAoGANkhG\nTLIthCFlt/PAiCCDXpIL2WIdN4EEKuw+O12EgFYL+yMFquyuMGOGOc0bmotiKM8g\nGK79UB2ma9q6Yy7mgwNVNenlQerwoi4yeXXgzMjEgY5YdOIcn7YUDMBppAhKhW1d\nv9sKWRoKXwF5lRljrJcQZckA1wdKgTl526kT2FkCgYBEtyqP9cCwdmY4+6cQctpJ\nnzwDIE06eigIypcYoJ0oYtRuYZw9oHZ9HA4tJFOPmBLFJ39/5M3VKHFqnBPndrXl\nlzmOIiR+gHyCIeiZ3/IxfvXA3dVSL/uMsGDXF/iOmO/u7XFgUDkF+oqU9h/rpGr1\nozhACKuh3KORYLgLn+EGiQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gcp-terraform@pj-ladriano-cloud.iam.gserviceaccount.com",
+  "client_id": "100056105368305428897",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gcp-terraform%40pj-ladriano-cloud.iam.gserviceaccount.com"
+}
