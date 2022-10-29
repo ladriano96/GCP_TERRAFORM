@@ -1,6 +1,6 @@
 data "google_iam_policy" "data-iam-plcy-function" {
     
-                           /* NO CAMPO MEBERS PODEM SER ADICIONADOS OS SEGUINTES VALORES ABAIXOS*/
+                           /* NO CAMPO MEMBERS PODEM SER ADICIONADOS OS SEGUINTES VALORES ABAIXOS*/
 
 /*  1 - allUsers (identificador que representa qualquer pessoa que esteja na internet, com ou sem uma conta google)
     2 - allAuthenticatedUsers (identificador que representa qualquer pessoas autenticada com uma conta google ou conta de serviço)
