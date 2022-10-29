@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("pj-ladriano-cloud-ecf3b47ae249.json")
+  credentials = file("pj-ladriano-cloud-4704092b4b5b.json")
 
   project = var.project_id
   region  = var.region_name
