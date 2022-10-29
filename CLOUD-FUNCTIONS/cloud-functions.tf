@@ -1,5 +1,5 @@
 /* CLOUD FUNCTIONS 1ª GERACAO COM TRIGGER HTTP ATIVA */
-resource "google_cloudfunctions_function" "ladriano_teste_function" {
+resource "google_cloudfunctions_function" "cloudfunctions_gn1" {
   name                  = var.function_name
   runtime               = var.runtime_type
   description           = var.description
