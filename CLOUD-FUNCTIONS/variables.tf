@@ -4,6 +4,12 @@ variable "project_id" {
   default = "pj-ladriano-cloud"
 }
 
+variable "env" {
+  description = "the environment name"
+  type    = string
+  default = "dev"
+}
+
 
 
 variable "region_name" {
@@ -18,12 +24,6 @@ variable "function_name" {
   description = "the cloud function name"
   type    = string
   default = "cloudfunctions_gn1"
-}
-
-variable "env" {
-  description = "the environment name"
-  type    = string
-  default = "dev"
 }
 
 
@@ -44,11 +44,11 @@ variable "entry_point_name" {
 
 
 
-/*variable "bucket_name" {
+variable "bucket_name" {
   description = "the bucket name"
   type    = string
   default = "buck-dev-01"
-}*/
+}
 
 
 

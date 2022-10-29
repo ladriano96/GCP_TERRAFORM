@@ -1,4 +1,4 @@
-data "google_iam_policy" "data-iam-plcy-function" {
+data "google_iam_policy" "data-iam-policy-function" {
 
   /* NO CAMPO MEMBERS PODEM SER ADICIONADOS AS SEGUINTES VARIÁVEIS ABAIXO*/
 
@@ -28,14 +28,14 @@ data "google_iam_policy" "data-iam-plcy-function" {
     members = var.members_allAuthenticatedUsers
   }
 
-  depends_on = [google_cloudfunctions_function.cloudfunctions_gn1]
+  depends_on = [google_cloudfunctions_function.cloudfunctions_g1]
 
 }
 
-resource "google_cloudfunctions_function_iam_policy" "plcy-function" {
+resource "google_cloudfunctions_function_iam_policy" "policy-function" {
   project        = var.project_id
   region         = var.region_name
-  cloud_function = google_cloudfunctions_function.cloudfunctions_gn1.name
-  policy_data    = data.google_iam_policy.data-iam-plcy-function.policy_data
-  depends_on     = [data.google_iam_policy.data-iam-plcy-function]
+  cloud_function = google_cloudfunctions_function.cloudfunctions_g1.name
+  policy_data    = data.google_iam_policy.data-iam-policy-function.policy_data
+  depends_on     = [data.google_iam_policy.data-iam-policy-function]
 }
