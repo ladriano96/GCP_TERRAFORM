@@ -1,3 +1,5 @@
+/* CLOUD FUNCTIONS 1ª GERACAO COM TRIGGER HTTP ATIVA */
+
 resource "google_cloudfunctions_function" "ladriano_teste_function" {
   name                  = var.function_name
   runtime               = var.runtime_type
@@ -15,6 +17,5 @@ resource "google_cloudfunctions_function" "ladriano_teste_function" {
   labels = {
     "enviroment" = "dev"
   }
-
   depends_on = [google_storage_bucket_object.functionladriano]
 }
