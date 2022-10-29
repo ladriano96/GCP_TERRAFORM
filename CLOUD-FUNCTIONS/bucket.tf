@@ -14,6 +14,6 @@ resource "google_storage_bucket_object" "functionladriano" {
   name       = "cloud-functios/function-phyton"
   bucket     = var.bucket_name
   source     = "functions-python/functions.zip"
-  depends_on = [google_storage_bucket.buck-ladriano-dev-01]
+ depends_on = [google_storage_bucket.buck-ladriano-dev-01]
 
 }
