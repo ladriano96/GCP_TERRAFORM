@@ -11,9 +11,9 @@ resource "google_storage_bucket" "storage_bucket" {
 
 
 resource "google_storage_bucket_object" "storage_bucket_object" {
-  name       = "cloud-functios/function-phyton"
+  name       = "cloud-functios/code-functions"
   bucket     = google_storage_bucket.storage_bucket.name
-  source     = "functions-python/functions.zip"
+  source     = "code-functions/functions.zip"
  depends_on = [google_storage_bucket.storage_bucket]
 
 }

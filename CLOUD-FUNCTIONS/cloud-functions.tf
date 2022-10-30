@@ -1,4 +1,4 @@
-/* CLOUD FUNCTIONS 1ª GERACAO COM TRIGGER HTTP ATIVA */
+/* CLOUD FUNCTIONS 1ª GERACAO COM TRIGGER HTTP ATIVA SEM VPC CONNECTOR */
 resource "google_cloudfunctions_function" "cloudfunctions_g1" {
   name                  = "funct-${var.project_id}-${var.env}-01"
   runtime               = var.runtime_type
