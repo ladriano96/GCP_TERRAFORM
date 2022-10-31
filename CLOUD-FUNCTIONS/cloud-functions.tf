@@ -44,6 +44,8 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_02" {
   }
 }
 
+
+
 resource "google_vpc_access_connector" "vpc-connector-g1" {
   provider      = google-beta.beta
   name          = "cnt-${var.env}-01"
