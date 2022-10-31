@@ -5,7 +5,7 @@ resource "google_storage_bucket" "storage_bucket" {
   storage_class = var.storage_class_standard
   force_destroy = true
   labels = {
-    "enviroment" = "dev"
+    "enviroment" = var.env
   }
 }
 

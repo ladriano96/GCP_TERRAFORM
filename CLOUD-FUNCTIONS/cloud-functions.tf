@@ -82,13 +82,13 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_03" {
 
 
 
- /* NO CAMPO "event_type" PODEM SER ADICIONADOS AS SEGUINTES VARIÁVEIS ABAIXO*/
+  /* NO CAMPO "event_type" PODEM SER ADICIONADOS AS SEGUINTES VARIÁVEIS ABAIXO*/
 
   /* 1 - var.storage_finalize_g1 (A função é "trigada" qunado um novo objeto é criado ou substituído no bucket)
      2 - var.storage_delete_g1 (A função é "trigada" quando um objeto é excluído permanentemente)
      3 - var.storage_archive_g1 (A função é "trigada" quando uma versão ativa de um objeto se torna uma versão não atual)
      4 - var.storage_metadataUpdate_g1(A função é "trigada" qunado os metadados de um objeto são alterados)  */
-  
+
   event_trigger {
     event_type = var.storage_finalize_g1
     resource   = google_storage_bucket.storage_bucket.id
