@@ -176,6 +176,42 @@ variable "pub_sub" {
 }
 
 
+
+
+variable "storage_finalize_g1" {
+  description = "the cloud storage object finalize primary generation api"
+  type        = string
+  default     = "google.storage.object.finalize"
+}
+
+
+
+
+variable "storage_delete_g1" {
+  description = "the cloud storage object delete primary generation api"
+  type        = string
+  default     = "google.storage.object.delete"
+}
+
+
+
+variable "storage_archive_g1" {
+  description = "the cloud storage object archive primary generation api"
+  type        = string
+  default     = "google.storage.object.archive"
+}
+
+
+
+variable "storage_metadataUpdate_g1" {
+  description = "the cloud storage object metadataUpdate primary generation api"
+  type        = string
+  default     = "google.storage.object.metadataUpdate"
+}
+
+
+
+
 variable "pub_sub_topic" {
   description = "the pub/sub topic name"
   type        = string
