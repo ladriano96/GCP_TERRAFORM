@@ -46,7 +46,7 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_02" {
 
 resource "google_vpc_access_connector" "vpc-connector-g1" {
   provider      = google-beta.beta
-  name          = "cnt-${var.project_id}-${var.env}-01"
+  name          = "cnt-${var.env}-01"
   ip_cidr_range = var.subnet
   network       = var.vpc
   min_instances = "2"
