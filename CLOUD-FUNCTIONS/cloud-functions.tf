@@ -79,13 +79,55 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_03" {
   /* (Se voce quiser usar vpc connector na function, basta descomentar a linha abaixo e criar o connector do arquivo vpc-connector.tf) */
   #vpc_connector         = var.vpc_connector
 
+
+
+
+/*
   event_trigger {
-    event_type = var.storage_finalize
+    event_type = var.storage_finalize_g1
     resource   = google_storage_bucket.storage_bucket.id
     failure_policy {
       retry = true
     }
   }
+*/
+
+
+
+/*
+  event_trigger {
+    event_type = var.storage_delete_g1
+    resource   = google_storage_bucket.storage_bucket.id
+    failure_policy {
+      retry = true
+    }
+  }
+*/
+
+
+
+  
+  /*event_trigger {
+    event_type = var.storage_archive_g1
+    resource   = google_storage_bucket.storage_bucket.id
+    failure_policy {
+      retry = true
+    }
+  }
+  */
+  
+
+
+  
+  event_trigger {
+    event_type = var.storage_metadataUpdate_g1
+    resource   = google_storage_bucket.storage_bucket.id
+    failure_policy {
+      retry = true
+    }
+  }
+  
+
 
   /* descomentar o comentário abaixo "google_vpc_access_connector.vpc-connector-g1" para criar a function*/
   depends_on = [google_storage_bucket_object.storage_bucket_object, /*google_vpc_access_connector.vpc-connector-g1*/]

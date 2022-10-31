@@ -29,7 +29,7 @@ data "google_iam_policy" "data-iam-policy-function" {
     members = var.members_allAuthenticatedUsers
   }
 
-  depends_on = [google_cloudfunctions_function.cloudfunctions_g1_01, google_cloudfunctions_function.cloudfunctions_g1_02]
+  depends_on = [google_cloudfunctions_function.cloudfunctions_g1_01, google_cloudfunctions_function.cloudfunctions_g1_02, google_cloudfunctions_function.cloudfunctions_g1_03]
 
 }
 
