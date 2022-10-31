@@ -45,7 +45,39 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_02" {
 }
 
 
+/* CLOUD FUNCTIONS 1ª GERACAO COM EVENT TRIGGER PUB/SUB */
+resource "google_cloudfunctions_function" "cloudfunctions_g1_03" {
+  name                  = "funct-${var.project_id}-${var.env}-03"
+  runtime               = var.runtime_type
+  description           = var.description
+  project               = var.project_id
+  region                = var.region_name
+  entry_point           = var.entry_point_name
+  source_archive_bucket = google_storage_bucket.storage_bucket.name
+  source_archive_object = google_storage_bucket_object.storage_bucket_object.name
+  vpc_connector         = var.vpc_connector
+  available_memory_mb   = "2048"
+  max_instances         = "5"
+  timeout               = "60"
+  event_trigger {
+    event_type = "google.pubsub.topic.publish"
+    resource   = "projects/pj-ladriano-cloud/topics/topic-functions"
+    failure_policy {
+      retry = true
+    }
+  }
 
+  depends_on = [google_vpc_access_connector.vpc-connector-g1]
+  labels = {
+    "enviroment" = "dev"
+  }
+}
+
+
+
+
+
+/* VPC SERVLESS CONNECTOR */
 resource "google_vpc_access_connector" "vpc-connector-g1" {
   provider      = google-beta.beta
   name          = "cnt-${var.env}-01"
