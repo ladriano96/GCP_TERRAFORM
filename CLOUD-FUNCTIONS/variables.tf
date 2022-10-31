@@ -1,48 +1,83 @@
 variable "project_id" {
-  type    = string
-  default = "pj-ladriano-cloud"
+  description = "the name project id"
+  type        = string
+  default     = "pj-ladriano-cloud"
+}
+
+variable "env" {
+  description = "the environment name"
+  type        = string
+  default     = "dev"
 }
 
 
 
 variable "region_name" {
-  type    = string
-  default = "southamerica-east1"
+  description = "the name region"
+  type        = string
+  default     = "southamerica-east1"
 }
 
 
+variable "vpc" {
+  description = "the vpc name"
+  type        = string
+  default     = "vpc-ladriano-01"
+
+}
+
+variable "vpc_connector" {
+  description = "the vpc connector name"
+  type        = string
+  default     = "projects/pj-ladriano-cloud/locations/southamerica-east1/connectors/cnt-dev-01"
+
+}
+
+
+variable "subnet" {
+  description = "the subnet name"
+  type        = string
+  default     = "10.152.0.0/28"
+
+}
+
 
 variable "function_name" {
-  type    = string
-  default = "ladriano_teste_function"
+  description = "the cloud function name"
+  type        = string
+  default     = "cloudfunctions_gn1"
 }
 
 
 
 variable "runtime_type" {
-  type    = string
-  default = "python39"
+  description = "a programming language to use"
+  type        = string
+  default     = "python39"
 }
 
 
 
 variable "entry_point_name" {
-  type    = string
-  default = "hello_world"
+  description = "the name entry point"
+  type        = string
+  default     = "hello_world"
 }
 
 
 
 variable "bucket_name" {
-  type    = string
-  default = "buck-ladriano-dev-01"
+  description = "the bucket name"
+  type        = string
+  default     = "buck-dev-01"
 }
 
 
 
 variable "storage_class_standard" {
-  type    = string
-  default = "STANDARD"
+  description = "the type class storage"
+  type        = string
+  default     = "STANDARD"
 }
 
 
@@ -55,74 +90,98 @@ variable "description" {
 
 
 variable "cloud_functions_admin" {
-  type    = string
-  default = "roles/cloudfunctions.admin"
+  description = "the cloud functions admin"
+  type        = string
+  default     = "roles/cloudfunctions.admin"
 }
 
 
 
 variable "cloud_functions_invoker" {
-  type    = string
-  default = "roles/cloudfunctions.invoker"
+  description = "the cloud functions invoker"
+  type        = string
+  default     = "roles/cloudfunctions.invoker"
 }
 
 
 
 variable "cloud_functions_developer" {
-  type    = string
-  default = "roles/cloudfunctions.developer"
+  description = "the cloud functions developer"
+  type        = string
+  default     = "roles/cloudfunctions.developer"
 }
 
 
 
 variable "cloud_functions_viewer" {
-  type    = string
-  default = "roles/cloudfunctions.viewer"
+  description = "the cloud functions viewer"
+  type        = string
+  default     = "roles/cloudfunctions.viewer"
 }
 
 
 
 variable "members_allUsers" {
-  type    = list(any)
-  default = ["allUsers"]
+  description = "allowing all users with internet access"
+  type        = list(any)
+  default     = ["allUsers"]
 }
 
 
 
 variable "members_user" {
-  type    = list(any)
-  default = ["user:leonardoadriano93@gmail.com"]
+  description = "allowing email with google account"
+  type        = list(any)
+  default     = ["user:leonardoadriano93@gmail.com"]
 }
 
 
 
 variable "members_allAuthenticatedUsers" {
-  type    = list(any)
-  default = ["allAuthenticatedUsers"]
+  description = "allowing authenticated users in gcp project"
+  type        = list(any)
+  default     = ["allAuthenticatedUsers"]
 }
 
 
 
 variable "members_serviceAccount" {
-  type    = list(any)
-  default = ["serviceAccount:seuserviceaccount@appspot.gserviceaccount.com"]
+  description = "allowing service account in gcp project"
+  type        = list(any)
+  default     = ["serviceAccount:seuserviceaccount@appspot.gserviceaccount.com"]
 }
 
 
 
 variable "members_group" {
-  type    = list(any)
-  default = ["group:seugrupo@gmail.com"]
+  description = "allowing google email group"
+  type        = list(any)
+  default     = ["group:seugrupo@gmail.com"]
 }
 
 
 
 variable "members_domain" {
-  type    = list(any)
-  default = ["domain:seudomain.com"]
+  description = "allowing a specific domain"
+  type        = list(any)
+  default     = ["domain:seudomain.com"]
 }
 
 
+
+variable "pub_sub" {
+  description = "the pub/sub api"
+  type        = string
+  default     = "google.pubsub.topic.publish"
+}
+
+
+variable "pub_sub_topic" {
+  description = "the pub/sub topic name"
+  type        = string
+  default     = "projects/pj-ladriano-cloud/topics/topic-functions"
+
+}
 
 
 

@@ -1,6 +1,6 @@
-resource "google_storage_bucket" "buck-ladriano-dev-01" {
+resource "google_storage_bucket" "storage_bucket" {
   project       = var.project_id
-  name          = var.bucket_name
+  name          = "buck-${var.project_id}-${var.env}-01"
   location      = var.region_name
   storage_class = var.storage_class_standard
   force_destroy = true
@@ -10,10 +10,10 @@ resource "google_storage_bucket" "buck-ladriano-dev-01" {
 }
 
 
-resource "google_storage_bucket_object" "functionladriano" {
-  name       = "cloud-functios/function-phyton"
-  bucket     = var.bucket_name
-  source     = "functions-python/functions.zip"
- depends_on = [google_storage_bucket.buck-ladriano-dev-01]
+resource "google_storage_bucket_object" "storage_bucket_object" {
+  name       = "cloud-functios/code-functions"
+  bucket     = google_storage_bucket.storage_bucket.name
+  source     = "code-functions/functions.zip"
+ depends_on = [google_storage_bucket.storage_bucket]
 
 }
