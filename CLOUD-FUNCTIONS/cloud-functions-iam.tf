@@ -1,3 +1,4 @@
+/* DATA IAM POLICY GERAL PARA O CLOUD FUNCIONS */
 data "google_iam_policy" "data-iam-policy-function" {
 
   /* NO CAMPO MEMBERS PODEM SER ADICIONADOS AS SEGUINTES VARIÁVEIS ABAIXO*/
@@ -32,6 +33,7 @@ data "google_iam_policy" "data-iam-policy-function" {
 
 }
 
+/* IAM POLICY PARA A CLOUDFUNCTION G1_01 */
 resource "google_cloudfunctions_function_iam_policy" "policy-function" {
   project        = var.project_id
   region         = var.region_name
@@ -41,6 +43,7 @@ resource "google_cloudfunctions_function_iam_policy" "policy-function" {
 }
 
 
+/* IAM POLICY PARA A CLOUDFUNCTION G1_02 */
 resource "google_cloudfunctions_function_iam_policy" "policy-function-02" {
   project        = var.project_id
   region         = var.region_name
