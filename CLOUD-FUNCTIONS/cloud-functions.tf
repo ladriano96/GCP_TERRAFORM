@@ -117,16 +117,16 @@ resource "google_cloudfunctions2_function" "cloudfunctions_g2_01" {
   location    = var.region_name
   description = var.description
 
-  build_config {
+build_config {
     runtime     = var.runtime_type
     entry_point = var.entry_point_name
-    source {
+   source {
       storage_source {
         bucket = google_storage_bucket.storage_bucket.name
         object = google_storage_bucket_object.storage_bucket_object.name
-      }
     }
   }
+}
 
   service_config {
     min_instance_count = 1
