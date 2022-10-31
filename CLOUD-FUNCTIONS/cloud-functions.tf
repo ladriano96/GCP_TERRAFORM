@@ -17,7 +17,7 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_01" {
   #vpc_connector = var.vpc_connector
 
   labels = {
-    "enviroment" = "dev"
+    "enviroment" = var.env
   }
   /* descomentar o comentário abaixo "google_vpc_access_connector.vpc-connector-g1" para criar a function*/
   depends_on = [google_storage_bucket_object.storage_bucket_object, /*google_vpc_access_connector.vpc-connector-g1*/]
@@ -55,9 +55,10 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_02" {
   /* descomentar o comentário abaixo "google_vpc_access_connector.vpc-connector-g1" para criar a function*/
   depends_on = [google_storage_bucket_object.storage_bucket_object, /*google_vpc_access_connector.vpc-connector-g1*/]
   labels = {
-    "enviroment" = "dev"
+    "enviroment" = var.env
   }
 }
+
 
 
 
@@ -83,12 +84,10 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_03" {
 
  /* NO CAMPO "event_type" PODEM SER ADICIONADOS AS SEGUINTES VARIÁVEIS ABAIXO*/
 
-  /* 1 - var.membres_user (identificador que representa qualquer pessoa que esteja na internet, com ou sem uma conta google)
-     2 - var.members_allAuthenticatedUsers (identificador que representa qualquer pessoa autenticada com uma conta google ou conta de serviço)
-     3 - var.members_user (endereço de e-mail que representa uma conta específica do google e tenha usuário criado no iam do projeto gcp)
-     4 - var.members_serviceAccount (endereço de e-mail que representa uma conta de serviço e tenha usuário criado no iam do projeto gcp)
-     5 - var.members_group (um endereço que representa um grupo de e-mail do google)
-     6 - var.members_domain (cominio que representa todos os usuários desse dominio)     */
+  /* 1 - var.storage_finalize_g1 (A função é "trigada" qunado um novo objeto é criado ou substituído no bucket)
+     2 - var.storage_delete_g1 (A função é "trigada" quando um objeto é excluído permanentemente)
+     3 - var.storage_archive_g1 (A função é "trigada" quando uma versão ativa de um objeto se torna uma versão não atual)
+     4 - var.storage_metadataUpdate_g1(A função é "trigada" qunado os metadados de um objeto são alterados)  */
   
   event_trigger {
     event_type = var.storage_finalize_g1
@@ -99,11 +98,10 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_03" {
   }
 
 
-
   /* descomentar o comentário abaixo "google_vpc_access_connector.vpc-connector-g1" para criar a function, caso você use o vpc connector nessa function*/
   depends_on = [google_storage_bucket_object.storage_bucket_object, /*google_vpc_access_connector.vpc-connector-g1*/]
   labels = {
-    "enviroment" = "dev"
+    "enviroment" = var.env
   }
 }
 
