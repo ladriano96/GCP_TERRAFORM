@@ -175,6 +175,12 @@ variable "pub_sub" {
   default     = "google.pubsub.topic.publish"
 }
 
+variable "storage_finalize" {
+  description = "the cloud storage object finalize api"
+  type        = string
+  default     = "google.storage.object.finalize"
+}
+
 
 variable "pub_sub_topic" {
   description = "the pub/sub topic name"
