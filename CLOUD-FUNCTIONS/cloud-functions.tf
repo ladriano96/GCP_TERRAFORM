@@ -1,3 +1,4 @@
+
 /* CLOUD FUNCTIONS 1ª GERACAO COM TRIGGER HTTP */
 resource "google_cloudfunctions_function" "cloudfunctions_g1_01" {
   name                  = "funct-${var.project_id}-${var.env}-01"
@@ -12,15 +13,16 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_01" {
   entry_point           = var.entry_point_name
   source_archive_bucket = google_storage_bucket.storage_bucket.name
   source_archive_object = google_storage_bucket_object.storage_bucket_object.name
-  /* (Se quiser usar vpc connector na function basta descomentar a linha abaixo e criar o connector do arquivo vpc-connector.tf) */
+  /* (Se voce quiser usar vpc connector na function, basta descomentar a linha abaixo e criar o connector do arquivo vpc-connector.tf) */
   vpc_connector         = var.vpc_connector 
 
   labels = {
     "enviroment" = "dev"
   }
-  /* descomentar o resource "gogolee_vpc_access_connector" no campo de "depends_on" na hora de criar a function com o vpc connector)*/
+  /* descomentar o comentário abaixo "google_vpc_access_connector.vpc-connector-g1" para criar a function*/
   depends_on = [google_storage_bucket_object.storage_bucket_object, google_vpc_access_connector.vpc-connector-g1]
 }
+
 
 
 
