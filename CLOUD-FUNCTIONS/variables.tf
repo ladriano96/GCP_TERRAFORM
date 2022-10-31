@@ -19,6 +19,28 @@ variable "region_name" {
 }
 
 
+variable "vpc" {
+  description = "the vpc name"
+  type = string
+  default = "vpc-ladriano-01"
+  
+}
+
+variable "vpc_connector" {
+  description = "the vpc connector name"
+  type = string
+  default = "projects/pj-ladriano-cloud/locations/southamerica-east1/connectors/cnt-dev-01"
+  
+}
+
+
+variable "subnet" {
+  description = "the subnet name"
+  type = string
+  default = "10.152.0.0/28"
+  
+}
+
 
 variable "function_name" {
   description = "the cloud function name"

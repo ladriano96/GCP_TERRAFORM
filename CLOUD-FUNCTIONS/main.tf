@@ -13,3 +13,10 @@ provider "google" {
   project = var.project_id
   region  = var.region_name
 }
+
+provider "google-beta" {
+  alias       = "beta"
+  credentials = file("pj-ladriano-cloud-4704092b4b5b.json")
+  project     = var.project_id
+  region      = var.region_name
+}
