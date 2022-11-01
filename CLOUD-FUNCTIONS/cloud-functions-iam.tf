@@ -29,7 +29,9 @@ data "google_iam_policy" "data-iam-policy-function" {
     members = var.members_allAuthenticatedUsers
   }
 
-  depends_on = [google_cloudfunctions_function.cloudfunctions_g1_01, google_cloudfunctions_function.cloudfunctions_g1_02, google_cloudfunctions_function.cloudfunctions_g1_03]
+  depends_on = [google_cloudfunctions_function.cloudfunctions_g1_01, google_cloudfunctions_function.cloudfunctions_g1_02, 
+  google_cloudfunctions_function.cloudfunctions_g1_03, google_cloudfunctions_function.cloudfunctions_g2_01, google_cloudfunctions_function.cloudfunctions_g2_02,
+  google_cloudfunctions_function.cloudfunctions_g2_03]
 
 
 }
@@ -74,6 +76,35 @@ resource "google_cloudfunctions2_function_iam_policy" "policy-function-04" {
   project        = var.project_id
   location       = var.region_name
   cloud_function = google_cloudfunctions2_function.cloudfunctions_g2_01.name
+  policy_data    = data.google_iam_policy.data-iam-policy-function.policy_data
+  depends_on     = [data.google_iam_policy.data-iam-policy-function]
+
+}
+
+
+
+
+/* IAM POLICY PARA A CLOUDFUNCTION G2_02 */
+resource "google_cloudfunctions2_function_iam_policy" "policy-function-05" {
+  provider       = google-beta.beta
+  project        = var.project_id
+  location       = var.region_name
+  cloud_function = google_cloudfunctions2_function.cloudfunctions_g2_02.name
+  policy_data    = data.google_iam_policy.data-iam-policy-function.policy_data
+  depends_on     = [data.google_iam_policy.data-iam-policy-function]
+
+}
+
+
+
+
+
+/* IAM POLICY PARA A CLOUDFUNCTION G2_03 */
+resource "google_cloudfunctions2_function_iam_policy" "policy-function-06" {
+  provider       = google-beta.beta
+  project        = var.project_id
+  location       = var.region_name
+  cloud_function = google_cloudfunctions2_function.cloudfunctions_g2_03.name
   policy_data    = data.google_iam_policy.data-iam-policy-function.policy_data
   depends_on     = [data.google_iam_policy.data-iam-policy-function]
 
