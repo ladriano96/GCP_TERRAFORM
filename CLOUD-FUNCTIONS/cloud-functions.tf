@@ -199,7 +199,7 @@ resource "google_cloudfunctions2_function" "cloudfunctions_g2_02" {
 
 
 
-/* CLOUD FUNCTIONS 2ª GERACAO COM EVENT TRIGGER PUB/SUB */
+/* CLOUD FUNCTIONS 2ª GERACAO COM EVENT TRIGGER CLOUD STORAGE */
 resource "google_cloudfunctions2_function" "cloudfunctions_g2_03" {
   provider    = google-beta.beta
   name        = "fcnt-${var.project_id}-${var.env}-06"
@@ -216,6 +216,14 @@ resource "google_cloudfunctions2_function" "cloudfunctions_g2_03" {
       }
     }
   }
+
+  /* NO CAMPO "event_type" PODEM SER ADICIONADOS AS SEGUINTES VARIÁVEIS ABAIXO*/
+
+  /* 1 - var.storage_finalize_g2 (A função é "trigada" qunado um novo objeto é criado ou substituído no bucket)
+     2 - var.storage_delete_g2 (A função é "trigada" quando um objeto é excluído permanentemente)
+     3 - var.storage_archive_g2 (A função é "trigada" quando uma versão ativa de um objeto se torna uma versão não atual)
+     4 - var.storage_metadataUpdate_g2(A função é "trigada" qunado os metadados de um objeto são alterados)  */
+
   event_trigger {
     trigger_region = var.region_name
     event_type     = var.storage_finalize_g2
