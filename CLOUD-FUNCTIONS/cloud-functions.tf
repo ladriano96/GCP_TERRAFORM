@@ -226,7 +226,7 @@ resource "google_cloudfunctions2_function" "cloudfunctions_g2_03" {
 
   event_trigger {
     trigger_region = var.region_name
-    event_type     = var.storage_delete_g2
+    event_type     = var.storage_finalize_g2
     retry_policy   = "RETRY_POLICY_RETRY"
 
     event_filters {

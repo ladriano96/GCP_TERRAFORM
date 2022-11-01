@@ -1,7 +1,7 @@
 variable "project_id" {
   description = "the name project id"
   type        = string
-  default     = "pj-ladriano-cloud"
+  default     = "the name project id"
 }
 
 variable "env" {
@@ -22,22 +22,22 @@ variable "region_name" {
 variable "vpc" {
   description = "the vpc name"
   type        = string
-  default     = "vpc-ladriano-01"
+  default     = "the vpc name"
 
 }
 
 variable "vpc_connector" {
-  description = "the vpc connector name"
+  description = "the vpc connector id"
   type        = string
-  default     = "projects/pj-ladriano-cloud/locations/southamerica-east1/connectors/cnt-dev-01"
+  default     = "the vpc connector id"
 
 }
 
 
 variable "subnet" {
-  description = "the subnet name"
+  description = "the subnet CIDR"
   type        = string
-  default     = "10.152.0.0/28"
+  default     = "the subnet CIDR"
 
 }
 
@@ -64,13 +64,6 @@ variable "entry_point_name" {
   default     = "hello_world"
 }
 
-
-
-variable "bucket_name" {
-  description = "the bucket name"
-  type        = string
-  default     = "buck-dev-01"
-}
 
 
 
@@ -132,7 +125,7 @@ variable "members_allUsers" {
 variable "members_user" {
   description = "allowing email with google account"
   type        = list(any)
-  default     = ["user:leonardoadriano93@gmail.com"]
+  default     = ["user:exemple@gamail.com"]
 }
 
 
@@ -255,7 +248,7 @@ variable "storage_metadataUpdate_g2" {
 variable "pub_sub_topic" {
   description = "the pub/sub topic primary generation name "
   type        = string
-  default     = "projects/pj-ladriano-cloud/topics/topic-functions"
+  default     = "projects/nomedoseuprojeto/topics/topic-functions"
 
 }
 
