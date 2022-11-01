@@ -193,3 +193,65 @@ resource "google_cloudfunctions2_function" "cloudfunctions_g2_02" {
   }
 
 }
+
+
+
+
+
+
+/* CLOUD FUNCTIONS 2ª GERACAO COM EVENT TRIGGER CLOUD STORAGE */
+resource "google_cloudfunctions2_function" "cloudfunctions_g2_03" {
+  provider    = google-beta.beta
+  name        = "fcnt-${var.project_id}-${var.env}-06"
+  location    = var.region_name
+  description = var.description
+
+  build_config {
+    runtime     = var.runtime_type
+    entry_point = var.entry_point_name
+    source {
+      storage_source {
+        bucket = google_storage_bucket.storage_bucket.name
+        object = google_storage_bucket_object.storage_bucket_object.name
+      }
+    }
+  }
+
+  /* NO CAMPO "event_type" PODEM SER ADICIONADOS AS SEGUINTES VARIÁVEIS ABAIXO*/
+
+  /* 1 - var.storage_finalize_g2 (A função é "trigada" qunado um novo objeto é criado ou substituído no bucket)
+     2 - var.storage_delete_g2 (A função é "trigada" quando um objeto é excluído permanentemente)
+     3 - var.storage_archive_g2 (A função é "trigada" quando uma versão ativa de um objeto se torna uma versão não atual)
+     4 - var.storage_metadataUpdate_g2(A função é "trigada" qunado os metadados de um objeto são alterados)  */
+  event_trigger {
+    trigger_region = var.region_name
+    event_type     = var.storage_finalize_g2
+    #retry_policy   = "RETRY_POLICY_RETRY"
+
+
+    event_filters {
+      attribute = "resourceName"
+      value     = "/projects/${var.project_id}/buckets/${google_storage_bucket.storage_bucket.name}"
+      operator  = "match-path-pattern"
+    }
+  }
+
+  service_config {
+    min_instance_count = 1
+    max_instance_count = 2
+    available_memory   = "256M"
+    timeout_seconds    = 60
+
+    /* (Se voce quiser usar vpc connector na function, basta descomentar as linhas abaixo e criar o connector do arquivo vpc-connector.tf) */
+    #vpc_connector                = var.vpc_connector
+    #vpc_connector_egress_settings = "ALL_TRAFFIC"
+  }
+
+
+  /* descomentar o comentário abaixo "google_vpc_access_connector.vpc-connector-g1" para criar a function, caso você use o vpc connector nessa function*/
+  depends_on = [google_storage_bucket_object.storage_bucket_object, google_vpc_access_connector.vpc-connector-g1]
+  labels = {
+    "enviroment" = var.env
+  }
+
+}

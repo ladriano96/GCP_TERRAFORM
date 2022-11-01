@@ -195,10 +195,27 @@ variable "storage_finalize_g1" {
 
 
 
+variable "storage_finalize_g2" {
+  description = "the cloud storage object finalize secundary generation api"
+  type        = string
+  default     = "google.cloud.storage.object.v1.finalized"
+}
+
+
+
+
 variable "storage_delete_g1" {
   description = "the cloud storage object delete primary generation api"
   type        = string
   default     = "google.storage.object.delete"
+}
+
+
+
+variable "storage_delete_g2" {
+  description = "the cloud storage object delete secundary generation api"
+  type        = string
+  default     = "google.cloud.storage.object.v1.deleted"
 }
 
 
@@ -211,6 +228,14 @@ variable "storage_archive_g1" {
 
 
 
+variable "storage_archive_g2" {
+  description = "the cloud storage object archive secundary generation api"
+  type        = string
+  default     = "google.cloud.storage.object.v1.archived"
+}
+
+
+
 variable "storage_metadataUpdate_g1" {
   description = "the cloud storage object metadataUpdate primary generation api"
   type        = string
@@ -219,9 +244,16 @@ variable "storage_metadataUpdate_g1" {
 
 
 
+variable "storage_metadataUpdate_g2" {
+  description = "the cloud storage object metadataUpdate secundary generation api"
+  type        = string
+  default     = "google.cloud.storage.object.v1.metadataUpdated"
+}
+
+
 
 variable "pub_sub_topic" {
-  description = "the pub/sub topic name"
+  description = "the pub/sub topic primary generation name "
   type        = string
   default     = "projects/pj-ladriano-cloud/topics/topic-functions"
 
