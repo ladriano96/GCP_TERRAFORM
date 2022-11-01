@@ -80,3 +80,18 @@ resource "google_cloudfunctions2_function_iam_policy" "policy-function-04" {
 }
 
 
+
+
+
+/* IAM POLICY PARA A CLOUDFUNCTION G2_02 */
+resource "google_cloudfunctions2_function_iam_policy" "policy-function-05" {
+  provider       = google-beta.beta
+  project        = var.project_id
+  location       = var.region_name
+  cloud_function = google_cloudfunctions2_function.cloudfunctions_g2_02.name
+  policy_data    = data.google_iam_policy.data-iam-policy-function.policy_data
+  depends_on     = [data.google_iam_policy.data-iam-policy-function]
+
+}
+
+
