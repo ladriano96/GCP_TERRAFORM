@@ -82,7 +82,6 @@ resource "google_cloudfunctions2_function_iam_policy" "policy-function-04" {
 
 
 
-
 /* IAM POLICY PARA A CLOUDFUNCTION G2_02 */
 resource "google_cloudfunctions2_function_iam_policy" "policy-function-05" {
   provider       = google-beta.beta
