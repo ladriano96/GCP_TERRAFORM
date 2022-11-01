@@ -169,10 +169,18 @@ variable "members_domain" {
 
 
 
-variable "pub_sub" {
-  description = "the pub/sub api"
+variable "pub_sub_g1" {
+  description = "the pub/sub primary generation api"
   type        = string
   default     = "google.pubsub.topic.publish"
+}
+
+
+
+variable "pub_sub_g2" {
+  description = "the pub/sub secundary generation api"
+  type        = string
+  default     = "google.cloud.pubsub.topic.v1.messagePublished"
 }
 
 

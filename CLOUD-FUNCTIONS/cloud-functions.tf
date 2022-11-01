@@ -45,7 +45,7 @@ resource "google_cloudfunctions_function" "cloudfunctions_g1_02" {
   #vpc_connector         = var.vpc_connector
 
   event_trigger {
-    event_type = var.pub_sub
+    event_type = var.pub_sub_g1
     resource   = var.pub_sub_topic
     failure_policy {
       retry = true
@@ -137,6 +137,54 @@ resource "google_cloudfunctions2_function" "cloudfunctions_g2_01" {
     #vpc_connector                = var.vpc_connector
     #vpc_connector_egress_settings = "ALL_TRAFFIC"
   }
+
+  /* descomentar o comentário abaixo "google_vpc_access_connector.vpc-connector-g1" para criar a function, caso você use o vpc connector nessa function*/
+  depends_on = [google_storage_bucket_object.storage_bucket_object, google_vpc_access_connector.vpc-connector-g1]
+  labels = {
+    "enviroment" = var.env
+  }
+
+}
+
+
+
+
+
+/* CLOUD FUNCTIONS 2ª GERACAO COM EVENT TRIGGER PUB/SUB */
+resource "google_cloudfunctions2_function" "cloudfunctions_g2_02" {
+  provider    = google-beta.beta
+  name        = "fcnt-${var.project_id}-${var.env}-05"
+  location    = var.region_name
+  description = var.description
+
+  build_config {
+    runtime     = var.runtime_type
+    entry_point = var.entry_point_name
+    source {
+      storage_source {
+        bucket = google_storage_bucket.storage_bucket.name
+        object = google_storage_bucket_object.storage_bucket_object.name
+      }
+    }
+  }
+
+  event_trigger {
+    trigger_region = var.region_name
+    event_type     = var.pub_sub_g2
+    pubsub_topic   = var.pub_sub_topic
+    retry_policy   = "RETRY_POLICY_RETRY"
+  }
+  service_config {
+    min_instance_count = 1
+    max_instance_count = 2
+    available_memory   = "256M"
+    timeout_seconds    = 60
+
+    /* (Se voce quiser usar vpc connector na function, basta descomentar as linhas abaixo e criar o connector do arquivo vpc-connector.tf) */
+    #vpc_connector                = var.vpc_connector
+    #vpc_connector_egress_settings = "ALL_TRAFFIC"
+  }
+
 
   /* descomentar o comentário abaixo "google_vpc_access_connector.vpc-connector-g1" para criar a function, caso você use o vpc connector nessa function*/
   depends_on = [google_storage_bucket_object.storage_bucket_object, google_vpc_access_connector.vpc-connector-g1]
