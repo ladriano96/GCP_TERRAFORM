@@ -1,7 +1,7 @@
 variable "project_id" {
   description = "the name project id"
   type        = string
-  default     = "the name project id"
+  default     = "pj-ladriano-cloud"
 }
 
 variable "env" {
@@ -22,7 +22,7 @@ variable "region_name" {
 variable "vpc" {
   description = "the vpc name"
   type        = string
-  default     = "the vpc name"
+  default     = "vpc-ladriano-01"
 
 }
 
@@ -37,7 +37,7 @@ variable "vpc_connector" {
 variable "subnet" {
   description = "the subnet CIDR"
   type        = string
-  default     = "the subnet CIDR"
+  default     = "10.152.0.0/28"
 
 }
 
@@ -248,7 +248,7 @@ variable "storage_metadataUpdate_g2" {
 variable "pub_sub_topic" {
   description = "the pub/sub topic primary generation name "
   type        = string
-  default     = "projects/nomedoseuprojeto/topics/topic-functions"
+  default     = "projects/pj-ladriano-cloud/topics/topic-functions"
 
 }
 
