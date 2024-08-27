@@ -32,7 +32,7 @@ jobs:
         run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
       - name: Run Snyk to check for vulnerabilities in your infrastructure as code
-        run: snyk iac test
+        run: snyk iac test --report
 
       - name: Upload Snyk report
         uses: actions/upload-artifact@v3
